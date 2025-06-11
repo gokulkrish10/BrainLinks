@@ -48,8 +48,8 @@ st.markdown(
         border: none;
     }
    [data-testid="collapsedControl"] {
-    color: white; /* Pink icon color */
-    background-color: transparent; /* Match your sidebar dark theme */
+    color: red; /* Pink icon color */
+    background-color: white; /* Match your sidebar dark theme */
     border-radius: 5px;
     padding: 4px;
     transition: all 0.3s ease;
