@@ -19,6 +19,19 @@ import io
 load_dotenv()
 
 # Enhanced Custom CSS with better color scheme
+import streamlit as st
+
+api_keys = st.secrets['GOOGLE_API_KEY']
+# Inject CSS to hide Streamlit branding
+hide_streamlit_style = """
+    <style>
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    </style>
+    """
+st.markdown(hide_streamlit_style, unsafe_allow_html=True)
+
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -369,6 +382,9 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
+
+st.write("Use the **Sidebar** to paste the URLS")
+
 # Custom Vector Store Class to replace FAISS
 class SimpleVectorStore:
     def __init__(self, documents, embeddings):
@@ -391,7 +407,7 @@ class SimpleRetriever:
         self.vectorstore = vectorstore
         self.embedding_function = GoogleGenerativeAIEmbeddings(
             model="models/embedding-001", 
-            google_api_key=os.getenv("GOOGLE_API_KEY")
+            google_api_key=api_keys
         )
     
     def get_relevant_documents(self, query):
@@ -429,6 +445,8 @@ def load_url_content(url):
 
 # Main header with custom styling
 
+
+
 st.markdown('<h1 class="main-header"> 🧠BrainURL </h1>', unsafe_allow_html=True)
 st.markdown('<p class="main-subtitle">Advanced AI-powered analysis of news articles, research papers, and web content</p>', unsafe_allow_html=True)
 st.markdown("""
@@ -445,16 +463,11 @@ st.markdown("""
 # Capabilities Section
 st.markdown("""
 <div class="capabilities-section">
-    <div class="capabilities-header">🚀 What Can This Tool Do?</div>
-    # <div class="capability-card">
-    #     <div class="capability-title">📊 Research Paper Processing</div>
-    #     <div class="capability-desc">Analyze academic papers, research articles, and technical documents to extract methodologies, findings, and conclusions.</div>
-    # </div>
-      <div class="capability-card">
+   <div class="capability-card">
         <div class="capability-title">🌐 Web Content Extraction</div>
         <div class="capability-desc">Automatically extract and clean content from web pages, removing ads, navigation, and other noise to focus on the main content.</div>
     </div>
-    <div class="capability-card">
+<div class="capability-card">
         <div class="capability-title">💡 Comparative Analysis</div>
         <div class="capability-desc">Compare information across multiple sources, identify contradictions, verify facts, and provide balanced perspectives on topics.</div>
     </div>
@@ -464,9 +477,8 @@ st.markdown("""
     </div> 
      <div class= "capability-card">
            <div class= "capability-title"> 🔉Text to Speeach </div> 
-            <div class = "capability-desc"> Every answer can be hear as audio   </div>
-             </div>          
-            
+            <div class = "capability-desc"> Hear Your Answers, Not Just Read Them  </div>
+             </div>   
 </div>
          
 """, unsafe_allow_html=True)
@@ -497,6 +509,7 @@ if urls_no and urls_no.isdigit():
 
 process_url_clicked = st.sidebar.button("🚀 Process URLs", help="Click to analyze and process all URLs")
 
+
 # Add sidebar info
 st.sidebar.markdown("---")
 st.sidebar.markdown("""
@@ -512,7 +525,7 @@ main_placeholder = st.empty()
 # Initialize LLM
 llm = ChatGoogleGenerativeAI(
     model='gemini-1.5-pro',
-    google_api_key=os.getenv("GOOGLE_API_KEY"),
+    google_api_key=api_keys,
     temperature=0
 )
 
@@ -545,7 +558,7 @@ if process_url_clicked:
                 main_placeholder.markdown('<div class="loading-text">🧠 Creating AI embeddings for semantic search...</div>', unsafe_allow_html=True)
                 embedding_model = GoogleGenerativeAIEmbeddings(
                     model="models/embedding-001", 
-                    google_api_key=os.getenv("GOOGLE_API_KEY")
+                    google_api_key=api_keys
                 )
                 
                 # Create embeddings for all documents
@@ -576,7 +589,7 @@ if process_url_clicked:
 
 # Query input with enhanced styling
 st.markdown("---")
-st.markdown("### 🤔 Ask Your Research Question")
+st.markdown("### 🤔 Ask Your Question")
 st.markdown("*Ask anything about the processed content - comparisons, summaries, specific facts, analysis, etc.*")
 
 with st.form("Question"):
@@ -670,7 +683,7 @@ st.markdown("---")
 st.markdown(
     """
     <div style="text-align: center; color: #94a3b8; font-family: Poppins, sans-serif; padding: 2rem;">
-        <div style="font-size: 1.1rem; margin-bottom: 0.5rem;">🚀 Powered by Google Gemini AI & Advanced NLP</div>
+        <div style="font-size: 1.1rem; margin-bottom: 0.5rem;">🚀 Fueled by Semantic Search & Advanced NLP</div>
         <div style="font-size: 0.9rem;">Built with LangChain, Streamlit & Custom Vector Search</div>
     </div>
     """, 
