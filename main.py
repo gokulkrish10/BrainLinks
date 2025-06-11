@@ -47,7 +47,21 @@ st.markdown(
         color: white;
         border: none;
     }
-   
+   [data-testid="collapsedControl"] {
+    color: #ff4081; /* Pink icon color */
+    background-color: #1e293b; /* Match your sidebar dark theme */
+    border-radius: 5px;
+    padding: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Optional: Add hover effect */
+[data-testid="collapsedControl"]:hover {
+    background-color: #ff4081;
+    color: white;
+    transform: scale(1.1);
+    cursor: pointer;
+}
     </style>
     """,
     unsafe_allow_html=True
