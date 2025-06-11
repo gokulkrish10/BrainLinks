@@ -462,7 +462,7 @@ st.markdown('<p class="main-subtitle">Advanced AI-powered analysis of news artic
 st.markdown("""
 <div class="how-to-use">
     <div class="how-to-title">📋 How to Use This Tool</div>
-    <div class="step">Enter the number of link you want to analyze (e.g., 2, 3, or more)</div>
+    <div class="step">Enter the number of link you want to analyze (e.g., 2, 3, or more) in the sidebar section</div>
     <div class="step">Paste the URLs of news articles, research papers, or web pages</div>
     <div class="step">Click "Process URLs" to let the AI analyze and understand the content</div>
     <div class="step">Wait for processing to complete (this may take a few moments)</div>
