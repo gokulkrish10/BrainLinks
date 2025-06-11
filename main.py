@@ -447,12 +447,12 @@ def load_url_content(url):
 
 
 
-st.markdown('<h1 class="main-header"> 🧠BrainURL </h1>', unsafe_allow_html=True)
+st.markdown('<h1 class="main-header"> 🧠BrainLink </h1>', unsafe_allow_html=True)
 st.markdown('<p class="main-subtitle">Advanced AI-powered analysis of news articles, research papers, and web content</p>', unsafe_allow_html=True)
 st.markdown("""
 <div class="how-to-use">
     <div class="how-to-title">📋 How to Use This Tool</div>
-    <div class="step">Enter the number of URLs you want to analyze (e.g., 2, 3, or more)</div>
+    <div class="step">Enter the number of link you want to analyze (e.g., 2, 3, or more)</div>
     <div class="step">Paste the URLs of news articles, research papers, or web pages</div>
     <div class="step">Click "Process URLs" to let the AI analyze and understand the content</div>
     <div class="step">Wait for processing to complete (this may take a few moments)</div>
@@ -491,7 +491,7 @@ st.markdown("""
 # Sidebar with enhanced styling
 st.sidebar.markdown('<div class="sidebar-title">🔗 URL Configuration</div>', unsafe_allow_html=True)
 
-urls_no = st.sidebar.text_input("📝 Number of URLs", placeholder="e.g., 3", help="Enter how many URLs you want to analyze")
+urls_no = st.sidebar.text_input("📝 Number of Links", placeholder="e.g., 3", help="Enter how many link you want to analyze")
 
 urls = []
 if urls_no and urls_no.isdigit():
@@ -507,7 +507,7 @@ if urls_no and urls_no.isdigit():
         if url:  # Only append non-empty URLs
             urls.append(url)
 
-process_url_clicked = st.sidebar.button("🚀 Process URLs", help="Click to analyze and process all URLs")
+process_url_clicked = st.sidebar.button("🚀 Process Link", help="Click to analyze and process all links")
 
 
 # Add sidebar info
@@ -515,7 +515,7 @@ st.sidebar.markdown("---")
 st.sidebar.markdown("""
 **💡 Tips:**
 - Use high-quality news sources
-- Ensure URLs are accessible
+- Ensure link are accessible
 - Processing time varies by content length
 """)
 
@@ -538,13 +538,13 @@ if process_url_clicked:
             data = []
             for i, url in enumerate(urls):
                 if url.strip():  # Only process non-empty URLs
-                    main_placeholder.markdown(f'<div class="loading-text">📖 Loading content from URL {i+1} of {len(urls)}...</div>', unsafe_allow_html=True)
+                    main_placeholder.markdown(f'<div class="loading-text">📖 Loading content from link {i+1} of {len(urls)}...</div>', unsafe_allow_html=True)
                     doc = load_url_content(url.strip())
                     if doc:
                         data.append(doc)
             
             if not data:
-                st.error("❌ No valid content could be loaded from the provided URLs.")
+                st.error("❌ No valid content could be loaded from the provided links.")
             else:
                 text_splitter = RecursiveCharacterTextSplitter(
                     separators=["\n\n", "\n", ".", ",", " "],
@@ -585,7 +585,7 @@ if process_url_clicked:
             st.error(f"❌ Error processing URLs: {str(e)}")
             st.info("💡 Try installing required packages: pip install scikit-learn numpy requests beautifulsoup4")
     else:
-        st.warning("⚠️ Please enter valid URLs before processing.")
+        st.warning("⚠️ Please enter valid links before processing.")
 
 # Query input with enhanced styling
 st.markdown("---")
@@ -672,9 +672,9 @@ if submitted:
                                 
             except Exception as e:
                 st.error(f"❌ Error processing query: {str(e)}")
-                st.info("💡 Please try rephrasing your question or check if the URLs were processed correctly.")
+                st.info("💡 Please try rephrasing your question or check if the links were processed correctly.")
         else:
-            st.warning("⚠️ Please process URLs first before asking questions.")
+            st.warning("⚠️ Please process links first before asking questions.")
 
     st.markdown('</div>', unsafe_allow_html=True)
 
