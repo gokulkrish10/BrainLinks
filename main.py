@@ -42,11 +42,11 @@ st.markdown(
         color: white;
         border: none;
     }
-    [data-testid="stButton"] button{
-    background-color: black;
+   [data-testid="stButton"] button {
+        background-color: black;
         color: white;
         border: none;
-}
+    }
    
     </style>
     """,
