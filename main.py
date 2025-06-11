@@ -29,6 +29,22 @@ st.set_page_config(
 
 api_keys = st.secrets['GOOGLE_API_KEY']
 # Inject CSS to hide Streamlit branding
+st.markdown(
+    """
+    <style>
+    /* Change sidebar background color */
+    [data-testid="stSidebar"] {
+        background-color: #f0f2f6; /* Change this to any color */
+    }
+
+    /* Optional: Change sidebar text color */
+    [data-testid="stSidebar"] * {
+        color: black;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
 hide_streamlit_style = """
     <style>
     #MainMenu {visibility: hidden;}
