@@ -652,7 +652,7 @@ if submitted:
                         audio_fp.seek(0)
 
                     # Display the audio player
-                        st.audio(audio_fp, format="audio/mp3")
+                        st.audio(audio_fp, format="audio/mpeg")
 
                     except Exception as e:
                                 st.error(f"An error occurred: {e}")
