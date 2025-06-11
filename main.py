@@ -32,15 +32,13 @@ api_keys = st.secrets['GOOGLE_API_KEY']
 st.markdown(
     """
     <style>
-    /* Change sidebar background color */
+    
     [data-testid="stSidebar"] {
-        background-color: #f0f2f6; /* Change this to any color */
+         background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+         color: #e2e8f0;
     }
 
-    /* Optional: Change sidebar text color */
-    [data-testid="stSidebar"] * {
-        color: black;
-    }
+   
     </style>
     """,
     unsafe_allow_html=True
