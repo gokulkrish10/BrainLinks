@@ -451,13 +451,13 @@ def load_url_content(url):
 
 # Main header with custom styling
 
-<<<<<<< HEAD
+
 st.markdown(' <h1 class="main-header"> 🧠BrainLinks </h1> ', unsafe_allow_html=True)
-=======
+
 
 
 st.markdown('<h1 class="main-header"> 🧠BrainLinks </h1>', unsafe_allow_html=True)
->>>>>>> 252850457101433f715523ec74cabdec39e96a32
+
 st.markdown('<p class="main-subtitle">Advanced AI-powered analysis of news articles, research papers, and web content</p>', unsafe_allow_html=True)
 st.markdown("""
 <div class="how-to-use">
