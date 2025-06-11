@@ -17,7 +17,7 @@ from gtts import gTTS
 import io
 
 load_dotenv()
-api_keys = st.secrets["GOOGLE_API_KEY"]
+
 # Enhanced Custom CSS with better color scheme
 import streamlit as st
 
