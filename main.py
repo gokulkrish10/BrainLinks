@@ -17,9 +17,15 @@ from gtts import gTTS
 import io
 
 load_dotenv()
-api_keys = st.secrets["GOOGLE_API_KEY"]
+
 # Enhanced Custom CSS with better color scheme
 import streamlit as st
+
+st.set_page_config(
+    page_title= "BrainLinks",
+    page_icon = "brainlink.jpg",
+    layout = "wide",
+)
 
 api_keys = st.secrets['GOOGLE_API_KEY']
 # Inject CSS to hide Streamlit branding
@@ -445,9 +451,7 @@ def load_url_content(url):
 
 # Main header with custom styling
 
-
-
-st.markdown('<h1 class="main-header"> 🧠BrainLink </h1>', unsafe_allow_html=True)
+st.markdown(' <h1 class="main-header"> 🧠BrainLinks </h1> ', unsafe_allow_html=True)
 st.markdown('<p class="main-subtitle">Advanced AI-powered analysis of news articles, research papers, and web content</p>', unsafe_allow_html=True)
 st.markdown("""
 <div class="how-to-use">
@@ -492,7 +496,7 @@ st.markdown("""
 st.sidebar.markdown('<div class="sidebar-title">🔗 URL Configuration</div>', unsafe_allow_html=True)
 
 urls_no = st.sidebar.text_input("📝 Number of Links", placeholder="e.g., 3", help="Enter how many link you want to analyze")
-
+process_no = st.sidebar.button("Submit")
 urls = []
 if urls_no and urls_no.isdigit():
     urls_no = int(urls_no)
@@ -509,6 +513,9 @@ if urls_no and urls_no.isdigit():
 
 process_url_clicked = st.sidebar.button("🚀 Process Link", help="Click to analyze and process all links")
 
+if process_url_clicked:
+    if urls:
+        st.sidebar.success("Go to Ask questions section 😊")
 
 # Add sidebar info
 st.sidebar.markdown("---")
@@ -588,6 +595,7 @@ if process_url_clicked:
         st.warning("⚠️ Please enter valid links before processing.")
 
 # Query input with enhanced styling
+st.markdown('<div id="section2"></div>', unsafe_allow_html=True)
 st.markdown("---")
 st.markdown("### 🤔 Ask Your Question")
 st.markdown("*Ask anything about the processed content - comparisons, summaries, specific facts, analysis, etc.*")
