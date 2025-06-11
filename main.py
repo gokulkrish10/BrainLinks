@@ -48,7 +48,7 @@ st.markdown(
         border: none;
     }
    [data-testid="collapsedControl"] {
-    color: #ff4081; /* Pink icon color */
+    color: white; /* Pink icon color */
     background-color: white; /* Match your sidebar dark theme */
     border-radius: 5px;
     padding: 4px;
@@ -57,7 +57,7 @@ st.markdown(
 
 /* Optional: Add hover effect */
 [data-testid="collapsedControl"]:hover {
-    background-color: #ff4081;
+    background-color: white;
     color: red;
     transform: scale(1.1);
     cursor: pointer;
@@ -249,7 +249,7 @@ st.markdown("""
     /* Button styling */
     .stButton > button {
         background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-        color: white;
+        color: black;
         border: none;
         border-radius: 12px;
         padding: 0.8rem 2.5rem;
