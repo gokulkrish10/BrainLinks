@@ -17,7 +17,7 @@ from gtts import gTTS
 import io
 
 load_dotenv()
-
+api_keys = st.secrets("GOOGLE_API_KEY")
 # Enhanced Custom CSS with better color scheme
 st.markdown("""
 <style>
@@ -391,7 +391,7 @@ class SimpleRetriever:
         self.vectorstore = vectorstore
         self.embedding_function = GoogleGenerativeAIEmbeddings(
             model="models/embedding-001", 
-            google_api_key=os.getenv("GOOGLE_API_KEY")
+            google_api_key=api_keys
         )
     
     def get_relevant_documents(self, query):
@@ -512,7 +512,7 @@ main_placeholder = st.empty()
 # Initialize LLM
 llm = ChatGoogleGenerativeAI(
     model='gemini-1.5-pro',
-    google_api_key=os.getenv("GOOGLE_API_KEY"),
+    google_api_key=api_keys,
     temperature=0
 )
 
@@ -545,7 +545,7 @@ if process_url_clicked:
                 main_placeholder.markdown('<div class="loading-text">🧠 Creating AI embeddings for semantic search...</div>', unsafe_allow_html=True)
                 embedding_model = GoogleGenerativeAIEmbeddings(
                     model="models/embedding-001", 
-                    google_api_key=os.getenv("GOOGLE_API_KEY")
+                    google_api_key=api_keys
                 )
                 
                 # Create embeddings for all documents
