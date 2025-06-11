@@ -37,6 +37,11 @@ st.markdown(
          background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
          color: #e2e8f0;
     }
+     [data-testid="stSidebar"] button {
+        background-color: black;
+        color: white;
+        border: none;
+    }
 
    
     </style>
