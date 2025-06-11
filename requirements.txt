@@ -1,0 +1,10 @@
+streamlit
+pickle-mixin
+langchain
+langchain-google-genai
+python-dotenv
+beautifulsoup4
+requests
+scikit-learn
+gtts
+numpy
