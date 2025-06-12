@@ -755,10 +755,10 @@ st.markdown("""
 button[kind="primary"], button {
     all: unset;
     appearance: button;
-    background: #f0f2f6;
+    background:black;
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
-    color: black;
+    color: white;
     border: 1px solid #ccc;
     font-family: sans-serif;
     cursor: pointer;
