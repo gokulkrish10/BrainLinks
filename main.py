@@ -32,7 +32,7 @@ api_keys = st.secrets['GOOGLE_API_KEY']
 st.markdown("""
     <style>
     button[kind="primary"] {
-        background-color: #1f77b4;  /* Blue */
+        background-color:black;  /* Blue */
         color: white;
         font-weight: bold;
         border: none;
@@ -43,7 +43,7 @@ st.markdown("""
     }
 
     button[kind="primary"]:hover {
-        background-color: #135d96;
+        background-color: red;
     }
     </style>
 """, unsafe_allow_html=True)
