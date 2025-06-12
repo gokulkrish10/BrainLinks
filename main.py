@@ -37,17 +37,20 @@ st.markdown(
          background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
          color: #e2e8f0;
     }
-      button [kind = "primary"]{
-        background-color: black;
+     button[kind="primary"] {
+        background-color: #1f77b4;  /* Blue */
         color: white;
+        font-weight: bold;
         border: none;
-    }
-  button[kind = "primary"]:hover {
-        background-color: black;
-        color: white;
-        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: 0.3s;
     }
 
+    button[kind="primary"]:hover {
+        background-color: #135d96;
+    }
     """,
     unsafe_allow_html=True
 )
