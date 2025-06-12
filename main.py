@@ -380,7 +380,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.write("Use the **Sidebar** to paste the Links")
+st.write("🔝Use the **Sidebar** to paste the Links")
 
 # Custom Vector Store Class to replace FAISS
 class SimpleVectorStore:
