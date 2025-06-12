@@ -32,18 +32,11 @@ api_keys = st.secrets['GOOGLE_API_KEY']
 st.markdown(
     """
     <style>
-    [data-testid="collapsedControl"]::before {
-    content: "🡺";  /* Right arrow icon */
-    display: inline-block;
-    font-size: 20px;
-    color: white;
-    padding: 4px;
-    background-color: red ;
-}
-
-/* Hide original toggle button icon (streamlit uses SVG) */
-[data-testid="collapsedControl"] svg {
-    display: none;
+ [data-testid="collapsedControl"] button {
+    background-color: red !important;
+    border: none !important;
+    border-radius: 4px !important;
+    padding: 4px !important;
 }
     [data-testid="stSidebar"] {
          background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
