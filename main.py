@@ -29,26 +29,6 @@ st.set_page_config(
 
 api_keys = st.secrets['GOOGLE_API_KEY']
 # Inject CSS to hide Streamlit branding
-st.markdown(
-    """
-    <style>
- [data-testid="collapsedControl"] button {
-    background-color: red !important;
-    border: none !important;
-    border-radius: 4px !important;
-    padding: 4px !important;
-}
-    [data-testid="stSidebar"] {
-         background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
-         color: #e2e8f0;
-    }
-    
-    """,
-    unsafe_allow_html=True
-)
-
-# st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -220,9 +200,26 @@ st.markdown("""
         color: #94a3b8;
     }
     
-  
+    /* Button styling */
+    .stButton > button {
+        background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        padding: 0.8rem 2.5rem;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        width: 100%;
+    }
     
-  
+    .stButton > button:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
+        background: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
+    }
     
     /* Success/Error messages */
     .stSuccess {
