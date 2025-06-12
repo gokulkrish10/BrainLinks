@@ -50,7 +50,46 @@ st.markdown("""
     @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500&display=swap');
     
     /* Main background and theme */
-     
+    .stApp {
+        background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+        background-attachment: fixed;
+        color: #e2e8f0;
+    }
+    
+    /* Custom container */
+    .main-container {
+        background: rgba(30, 41, 59, 0.95);
+        backdrop-filter: blur(20px);
+        border-radius: 24px;
+        padding: 2.5rem;
+        margin: 1.5rem;
+        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(148, 163, 184, 0.2);
+    }
+    
+    /* Header styling */
+    .main-header {
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 3.5rem;
+        font-weight: 700;
+        # # background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+        # -webkit-background-clip: text;
+        # -webkit-text-fill-color: transparent;
+        # background-clip: text;
+        # margin-bottom: 0.5rem;
+        # text-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+    }
+    
+    .main-subtitle {
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        font-size: 1.3rem;
+        color: #94a3b8;
+        margin-bottom: 2.5rem;
+        font-weight: 400;
+    }
+    
     /* Capabilities section */
     .capabilities-section {
         background: linear-gradient(135deg, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
@@ -284,7 +323,42 @@ st.markdown("""
         border: 1px solid rgba(6, 182, 212, 0.2);
     }
     
-        /* Feature highlight */
+    @keyframes pulse {
+        0% { opacity: 0.7; transform: scale(1); }
+        50% { opacity: 1; transform: scale(1.02); }
+        100% { opacity: 0.7; transform: scale(1); }
+    }
+    
+    /* Divider styling */
+    hr {
+        border: none;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+        margin: 2rem 0;
+    }
+    
+    /* Hide Streamlit branding */
+    #MainMenu {visibility: hidden;}
+    footer {visibility: hidden;}
+    header {visibility: hidden;}
+    
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background: rgba(30, 41, 59, 0.5);
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+        border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
+    }
+    
+    /* Feature highlight */
     .feature-highlight {
         background: linear-gradient(135deg, rgba(6, 182, 212, 0.1) 0%, rgba(59, 130, 246, 0.1) 100%);
         border: 1px solid rgba(6, 182, 212, 0.3);
