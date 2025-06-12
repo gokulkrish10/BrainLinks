@@ -29,7 +29,24 @@ st.set_page_config(
 
 api_keys = st.secrets['GOOGLE_API_KEY']
 # Inject CSS to hide Streamlit branding
+st.markdown("""
+    <style>
+    button[kind="primary"] {
+        background-color: #1f77b4;  /* Blue */
+        color: white;
+        font-weight: bold;
+        border: none;
+        border-radius: 8px;
+        padding: 10px 20px;
+        font-size: 16px;
+        transition: 0.3s;
+    }
 
+    button[kind="primary"]:hover {
+        background-color: #135d96;
+    }
+    </style>
+""", unsafe_allow_html=True)
 
 st.write("Use the **Sidebar** to paste the Links")
 
