@@ -29,43 +29,6 @@ st.set_page_config(
 
 api_keys = st.secrets['GOOGLE_API_KEY']
 # Inject CSS to hide Streamlit branding
-/* Sidebar toggle (collapse control) button styling */
-[data-testid="collapsedControl"] {
-    position: fixed;
-    top: 1px;
-    left: 1px;
-    z-index: 100;
-    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
-    color: white;
-    border: none;
-    border-radius: 10px;
-    padding: 8px;
-    cursor: pointer;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-    transition: all 0.3s ease;
-}
-
-[data-testid="collapsedControl"]:hover {
-    background: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
-    transform: scale(1.05);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
-}
-
-/* Icon inside toggle (hamburger icon) */
-[data-testid="collapsedControl"] svg {
-    fill: white;
-}
-
-/* Toggle visibility fix for both dark/light modes */
-@media (prefers-color-scheme: light) {
-    [data-testid="collapsedControl"] {
-        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-        color: white;
-    }
-    [data-testid="collapsedControl"]:hover {
-        background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
-    }
-}
 
 
 st.write("Use the **Sidebar** to paste the Links")
