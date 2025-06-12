@@ -749,6 +749,27 @@ st.markdown("""
     }
 </style>
 """, unsafe_allow_html=True)
+st.markdown("""
+<style>
+/* Reset Streamlit button styling */
+button[kind="primary"], button {
+    all: unset;
+    appearance: button;
+    background: #f0f2f6;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    color: black;
+    border: 1px solid #ccc;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+button[kind="primary"]:hover, button:hover {
+    background: #e2e4e7;
+}
+</style>
+""", unsafe_allow_html=True)
+
 
 st.write("Use the **Sidebar** to paste the Links")
 
