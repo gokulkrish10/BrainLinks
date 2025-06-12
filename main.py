@@ -32,8 +32,8 @@ api_keys = st.secrets['GOOGLE_API_KEY']
 /* Sidebar toggle (collapse control) button styling */
 [data-testid="collapsedControl"] {
     position: fixed;
-    top: 1rem;
-    left: 1rem;
+    top: 1px;
+    left: 1px;
     z-index: 100;
     background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
     color: white;
