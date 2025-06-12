@@ -29,148 +29,44 @@ st.set_page_config(
 
 api_keys = st.secrets['GOOGLE_API_KEY']
 # Inject CSS to hide Streamlit branding
-st.markdown(
-    """
-    <style>
-    
-    /* Theme variables */
-    :root {
-        --primary-color: #06b6d4;
-        --secondary-color: #3b82f6;
-        --dark-bg: #0f172a;
-        --dark-card-bg: rgba(30, 41, 59, 0.95);
-        --dark-text: #e2e8f0;
-        --dark-accent: #94a3b8;
-        --light-bg: #f8fafc;
-        --light-text: #1e293b;
-        --light-accent: #64748b;
-        --gradient-start: #0f172a;
-        --gradient-mid: #1e293b;
-        --gradient-end: #334155;
-    }
-    
-    /* Dark theme */
-    @media (prefers-color-scheme: dark) {
-        body {
-            background: var(--gradient-start);
-            color: var(--dark-text);
-        }
-        
-        [data-testid="stSidebar"] {
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
-            color: var(--dark-text);
-        }
-        
-        .stApp {
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
-            background-attachment: fixed;
-            color: var(--dark-text);
-        }
-    }
-    
-    /* Light theme */
-    @media (prefers-color-scheme: light) {
-        body {
-            background: var(--light-bg);
-            color: var(--light-text);
-        }
-        
-        [data-testid="stSidebar"] {
-            background: linear-gradient(135deg, var(--dark-bg) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
-            color: var(--light-text);
-        }
-        
-        .stApp {
-            background: linear-gradient(135deg, var(--gradient-start) 0%, var(--gradient-mid) 50%, var(--gradient-end) 100%);
-            background-attachment: fixed;
-            color: var(--light-text);
-        }
-    }
-    
-    /* Toggle button styling */
-    .toggle-btn {
-        position: fixed;
-        top: 15px;
-        right: 15px;
-        z-index: 1000;
-        background: var(--primary-color);
+/* Sidebar toggle (collapse control) button styling */
+[data-testid="collapsedControl"] {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    z-index: 100;
+    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s ease;
+}
+
+[data-testid="collapsedControl"]:hover {
+    background: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
+    transform: scale(1.05);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon inside toggle (hamburger icon) */
+[data-testid="collapsedControl"] svg {
+    fill: white;
+}
+
+/* Toggle visibility fix for both dark/light modes */
+@media (prefers-color-scheme: light) {
+    [data-testid="collapsedControl"] {
+        background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
         color: white;
-        border: none;
-        border-radius: 50px;
-        padding: 10px 20px;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 600;
-        cursor: pointer;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        transition: all 0.3s ease;
     }
-    
-    .toggle-btn:hover {
-        background: var(--secondary-color);
-        transform: scale(1.05);
+    [data-testid="collapsedControl"]:hover {
+        background: linear-gradient(135deg, #3b82f6 0%, #1e40af 100%);
     }
-    
-    /* Main container */
-    .main-container {
-        background: var(--dark-card-bg);
-        backdrop-filter: blur(20px);
-        border-radius: 24px;
-        padding: 2.5rem;
-        margin: 1.5rem;
-        box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
-        border: 1px solid rgba(148, 163, 184, 0.2);
-    }
-    
-    /* Input field styling */
-    .stTextInput > div > div > input {
-        background: rgba(51, 65, 85, 0.8);
-        border: 2px solid rgba(148, 163, 184, 0.3);
-        border-radius: 12px;
-        padding: 0.8rem;
-        font-family: 'Poppins', sans-serif;
-        font-size: 1rem;
-        color: var(--dark-text);
-        transition: all 0.3s ease;
-    }
-    
-    .stTextInput > div > div > input:focus {
-        border-color: var(--primary-color);
-        box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
-        outline: none;
-        background: rgba(51, 65, 85, 0.9);
-    }
-    
-    /* Button styling */
-    .stButton > button {
-        background: var(--primary-color);
-        color: white;
-        border: none;
-        border-radius: 12px;
-        padding: 0.8rem 2.5rem;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 500;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-        width: 100%;
-    }
-    
-    .stButton > button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
-        background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-    }
-    
-    /* Sidebar styling */
-    [data-testid="stSidebar"] {
-         color: var(--dark-text);
-         transition: all 0.5s ease;
-    }
-    
-    /* Other styles remain unchanged */
-    """,
-    unsafe_allow_html=True
-)
+}
+
 
 st.write("Use the **Sidebar** to paste the Links")
 
