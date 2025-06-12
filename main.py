@@ -233,23 +233,23 @@ st.markdown("""
     
     /* Button styling */
     .stButton > button {
-        background: black;
-        color: white;
-        border: none;
-        border-radius: 12px;
-        padding: 0.8rem 2.5rem;
-        font-family: 'Poppins', sans-serif;
-        font-weight: 500;
-        font-size: 1rem;
-        transition: all 0.3s ease;
-        box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
-        width: 100%;
+        # background: black;
+        # color: white;
+        # border: none;
+        # border-radius: 12px;
+        # padding: 0.8rem 2.5rem;
+        # font-family: 'Poppins', sans-serif;
+        # font-weight: 500;
+        # font-size: 1rem;
+        # transition: all 0.3s ease;
+        # box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+        # width: 100%;
     }
     
     .stButton > button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
-        background: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
+        # transform: translateY(-2px);
+        # box-shadow: 0 10px 30px rgba(59, 130, 246, 0.5);
+        # background: linear-gradient(135deg, #0891b2 0%, #2563eb 100%);
     }
     
     /* Success/Error messages */
