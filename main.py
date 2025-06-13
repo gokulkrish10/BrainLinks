@@ -18,7 +18,7 @@ import io
 
 load_dotenv()
 
-# Enhanced Custom CSS with better color scheme
+# Enhanced Custom CSS with better color schemee
 import streamlit as st
 
 st.set_page_config(
@@ -30,15 +30,6 @@ st.set_page_config(
 
 api_keys = st.secrets['GOOGLE_API_KEY']
 # Inject CSS to hide Streamlit branding
-hide_streamlit_style = """
-    <style>
-    #MainMenu {visibility: hidden;}
-    footer {visibility: hidden;}
-    header {visibility: hidden;}
-    </style>
-    """
-st.markdown(hide_streamlit_style, unsafe_allow_html=True)
-
 st.markdown("""
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
@@ -390,7 +381,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-st.write("Use the **Sidebar** to paste the URLS")
+st.write("⤴️Use the **Sidebar** to paste the Links")
 
 # Custom Vector Store Class to replace FAISS
 class SimpleVectorStore:
@@ -453,8 +444,12 @@ def load_url_content(url):
 # Main header with custom styling
 
 
+st.markdown(' <h1 class="main-header"> 🧠BrainLinks </h1> ', unsafe_allow_html=True)
 
-st.markdown('<h1 class="main-header"> 🧠BrainLinks </h1>', unsafe_allow_html=True)
+
+
+
+
 st.markdown('<p class="main-subtitle">Advanced AI-powered analysis of news articles, research papers, and web content</p>', unsafe_allow_html=True)
 st.markdown("""
 <div class="how-to-use">
