@@ -26,6 +26,7 @@ st.set_page_config(
     page_icon = "brainlink.jpg",
     layout = "wide",
 )
+#api_keys = os.getenv("GOOGLE_API_KEY")
 
 api_keys = st.secrets['GOOGLE_API_KEY']
 # Inject CSS to hide Streamlit branding
@@ -451,18 +452,14 @@ def load_url_content(url):
 
 # Main header with custom styling
 
-<<<<<<< HEAD
-st.markdown(' <h1 class="main-header"> 🧠BrainLinks </h1> ', unsafe_allow_html=True)
-=======
 
 
 st.markdown('<h1 class="main-header"> 🧠BrainLinks </h1>', unsafe_allow_html=True)
->>>>>>> 252850457101433f715523ec74cabdec39e96a32
 st.markdown('<p class="main-subtitle">Advanced AI-powered analysis of news articles, research papers, and web content</p>', unsafe_allow_html=True)
 st.markdown("""
 <div class="how-to-use">
     <div class="how-to-title">📋 How to Use This Tool</div>
-    <div class="step">Enter the number of link you want to analyze (e.g., 2, 3, or more)</div>
+    <div class="step">Enter the number of link you want to analyze (e.g., 2, 3, or more) in the sidebar section</div>
     <div class="step">Paste the URLs of news articles, research papers, or web pages</div>
     <div class="step">Click "Process URLs" to let the AI analyze and understand the content</div>
     <div class="step">Wait for processing to complete (this may take a few moments)</div>
@@ -577,22 +574,31 @@ if process_url_clicked:
                 # Create embeddings for all documents
                 doc_texts = [doc.page_content for doc in docs]
                 embeddings = embedding_model.embed_documents(doc_texts)
+                if not embeddings:
+                    main_placeholder.markdown('<div class="loading-text"> 😔 Nothing is extracted from the link/s </div>' , unsafe_allow_html=True )
+                    st.error("⚠️ Hmm... we couldn’t analyze the content from this link. Please try with different or more informative pages.")
+                else:
+
                 
-                # Create custom vector store
-                vectorstore = SimpleVectorStore(docs, embeddings)
+
                 
-                main_placeholder.markdown('<div class="loading-text">💾 Saving processed knowledge base...</div>', unsafe_allow_html=True)
-                
-                # Save the vectorstore data
-                store_data = {
-                    'documents': docs,
-                    'embeddings': embeddings
-                }
-                
-                with open(file_path, 'wb') as f:
-                    pt.dump(store_data, f)
-                
-                main_placeholder.success("✅ Processing completed successfully! You can now ask questions about the analyzed content.")
+                # converting 1d into 2d 
+
+            
+                    vectorstore = SimpleVectorStore(docs, embeddings)
+                    
+                    main_placeholder.markdown('<div class="loading-text">💾 Saving processed knowledge base...</div>', unsafe_allow_html=True)
+                    
+                    # Save the vectorstore data
+                    store_data = {
+                        'documents': docs,
+                        'embeddings': embeddings
+                    }
+                    
+                    with open(file_path, 'wb') as f:
+                        pt.dump(store_data, f)
+                    
+                    main_placeholder.success("✅ Processing completed successfully! You can now ask questions about the analyzed content.")
             
         except Exception as e:
             st.error(f"❌ Error processing URLs: {str(e)}")
