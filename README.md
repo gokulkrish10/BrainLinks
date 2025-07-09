@@ -45,25 +45,5 @@ flowchart TD
     A8 -- "Outputs Audio" --> A6
 ```
 
-## Chapters
-
-1. [User Interface
-](01_user_interface_.md)
-2. [Web Content Loader
-](02_web_content_loader_.md)
-3. [Text Splitter
-](03_text_splitter_.md)
-4. [Semantic Understanding (Embedding)
-](04_semantic_understanding__embedding__.md)
-5. [Vector Store & Retriever
-](05_vector_store___retriever_.md)
-6. [Persistent Storage
-](06_persistent_storage_.md)
-7. [Question Answering Flow
-](07_question_answering_flow_.md)
-8. [AI Generation Model (LLM)
-](08_ai_generation_model__llm__.md)
-9. [Text-to-Speech Output
-](09_text_to_speech_output_.md)
 
 ---
